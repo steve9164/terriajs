@@ -5,7 +5,13 @@ var createKarmaBaseConfig = require('./createKarmaBaseConfig');
 
 module.exports = function(config) {
     var options = Object.assign({}, createKarmaBaseConfig(config), {
-        browsers: ['Firefox'],
+        customLaunchers: {
+            FirefoxHeadless: {
+                base: 'Firefox',
+                flags: ['-headless']
+            }
+        },
+        browsers: ['FirefoxHeadless'],
     });
 
     config.set(options);
