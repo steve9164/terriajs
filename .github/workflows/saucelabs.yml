@@ -37,6 +37,7 @@ jobs:
         env:
           NODE_OPTIONS: --max_old_space_size=4096
 
-      - name: Run tests
-        run: npm run gulp test-travis
-
+      - name: Run tests using xvfb
+        uses: GabrielBB/xvfb-action@v1
+        with:
+          run: npm run gulp test-travis
